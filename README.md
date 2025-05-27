@@ -7,7 +7,7 @@
 **Main Libraries & Tools:**
 
 - React, React DOM, React Router DOM
-- Redux Toolkit, React Redux
+- RTK Query, Shadcn, Form validation using Zod
 - Tailwind CSS, tailwindcss-animate, tailwind-merge
 - Radix UI (various components)
 - React Hook Form, Zod (form validation)
