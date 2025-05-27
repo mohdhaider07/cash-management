@@ -122,7 +122,7 @@ const DataTable: React.FC<DataTableProps<any, any>> = <TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-sm text-center"
                 >
-                  {t("noResults")}
+                  No data available
                 </TableCell>
               </TableRow>
             )}

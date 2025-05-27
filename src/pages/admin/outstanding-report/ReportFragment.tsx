@@ -37,7 +37,7 @@ const columns: ColumnDef<TableDataType>[] = [
       const value = row.original.collections;
       return (
         <div className="text-left">
-          {value === 0 ? "-" : value.toLocaleString("en-IN")}
+          {value === 0 ? "" : value.toLocaleString("en-IN")}
         </div>
       );
     },
@@ -53,10 +53,10 @@ const columns: ColumnDef<TableDataType>[] = [
       const value = row.original.difference;
       const isPositive = value > 0;
       const valueClass = !isPositive ? "text-success" : "text-destructive";
-
+      if (value === 0) return <div className="text-left"></div>;
       return (
         <div className={`text-left ${valueClass}`}>
-          {value.toLocaleString("en-IN")}
+          {isPositive ? `(+)${value}` : ` (-) ${value * -1}`}
         </div>
       );
     },
@@ -83,7 +83,7 @@ export default function ReportFragment() {
       collections: item.totalCollection,
       date: item.recentDeposit
         ? format(new Date(item.recentDeposit), "dd MMM yyyy")
-        : "-",
+        : "",
       difference: item.outstandingAmount,
     })) || [];
 

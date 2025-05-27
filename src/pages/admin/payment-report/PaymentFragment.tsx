@@ -34,7 +34,7 @@ const columns: ColumnDef<TableDataType>[] = [
       const value = row.original.collectionAmount;
       return (
         <div className="text-left">
-          {value == null || value === 0 ? "" : value.toLocaleString("en-IN")}
+          {value == null || value === 0 ? "" : value}
         </div>
       );
     },
@@ -51,7 +51,7 @@ const columns: ColumnDef<TableDataType>[] = [
       const value = row.original.depositAmount;
       return (
         <div className="text-left ">
-          {value == null || value === 0 ? "" : value.toLocaleString("en-IN")}
+          {value == null || value == 0 ? "" : value}
         </div>
       );
     },
@@ -72,11 +72,9 @@ const columns: ColumnDef<TableDataType>[] = [
           : value > 0
           ? "text-left text-success"
           : "text-left text-warning";
-      return (
-        <div className={className}>
-          {value == null ? "-" : value.toLocaleString("en-IN")}
-        </div>
-      );
+      if (value === 0) return <div className={className}></div>;
+
+      return <div className={className}>{value == null ? "" : value}</div>;
     },
   },
 ];
