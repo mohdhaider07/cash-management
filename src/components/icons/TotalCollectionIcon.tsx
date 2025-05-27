@@ -1,0 +1,27 @@
+import React from "react";
+
+interface TotalCollectionIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number;
+}
+
+export const TotalCollectionIcon: React.FC<TotalCollectionIconProps> = ({
+  size = 72,
+  ...props
+}) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 72 72"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <rect width="72" height="72" rx="36" fill="#F8FAFC" />
+      <path
+        d="M37.053 29.079C38.024 28.17 39.397 26.719 39.947 25.335C40.202 24.694 39.69 24 39 24H33C32.31 24 31.798 24.693 32.053 25.335C32.603 26.719 33.976 28.17 34.947 29.079C29.569 29.878 25 36.618 25 42C25 45.309 27.691 48 31 48H41C44.309 48 47 45.309 47 42C47 36.618 42.431 29.878 37.053 29.079Z"
+        fill="#334155"
+      />
+    </svg>
+  );
+};

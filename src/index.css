@@ -1,0 +1,53 @@
+:root {
+  --primary: 262 32% 46%; /* #574B97 */
+  --primary-foreground: 0 0% 100%; /* #fff */
+  --secondary: 16 85% 55%; /* #EE632B */
+  --secondary-foreground: 0 0% 100%;
+  --radius: 6px;
+  --input: 220 13% 91%;
+  --border: 220 13% 91%;
+  --ring: 262 32% 46%;
+  --background: 0 0% 100%;
+  --background-foreground: 210 20% 98%; /*#F8FAFC*/
+  --foreground: 262 32% 20%;
+  --destructive: 0 74% 42%; /* #B91C1C */
+  --destructive-foreground: 0 0% 100%;
+  --muted: 220 13% 91%;
+  --muted-foreground: 262 32% 46%;
+  --accent: 262 32% 96%;
+  --accent-foreground: 262 32% 46%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 262 32% 20%;
+  --card: 0 0% 100%;
+  --card-foreground: 262 32% 20%;
+  --chart-1: 262 32% 46%;
+  --chart-2: 16 89% 63%;
+  --chart-3: 140 60% 50%;
+  --chart-4: 48 89% 60%;
+  --chart-5: 340 82% 52%;
+  --slate: 217 19% 35%; /* #64748B */
+  --slate-400: 217 19% 65%; /* #94A3B8 */
+  --success: 161 89% 35%; /* #0BA974 */
+  --success-foreground: 0 0% 100%; /* #FFFFFF */
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background text-foreground;
+}
+
+button {
+  /* Remove hardcoded color and radius, use Tailwind classes and theme vars */
+  @apply px-4 py-2 font-medium bg-primary text-primary-foreground rounded-md hover:bg-primary/90;
+}
+
+input {
+  @apply border border-input rounded-md px-3 py-2;
+}
+
+.card {
+  @apply bg-card text-card-foreground shadow-md rounded-lg p-4;
+}
