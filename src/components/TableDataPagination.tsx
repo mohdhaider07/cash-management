@@ -130,7 +130,7 @@ const DataTablePagination: React.FC<DataTablePaginationProps<any>> = ({
             ) : (
               <Button
                 key={pageNum}
-                variant={page === pageNum ? "secondary" : "ghost"}
+                variant={page === pageNum ? "secondary" : "outline"}
                 className={`h-8 w-8 p-0  ${page === pageNum ? "" : ""}`}
                 onClick={() => setPage(pageNum as number)}
               >

@@ -121,7 +121,7 @@ function PaymentFragment() {
       <DataTable
         columns={columns}
         data={tableData}
-        totalRows={reportData?.report.length || 0}
+        totalRows={reportData?.total || 0}
         page={currentPage}
         setPage={setCurrentPage}
         pageSize={pageSize}

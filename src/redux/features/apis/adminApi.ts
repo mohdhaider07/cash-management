@@ -44,6 +44,10 @@ interface PaymentReportItem {
 
 interface PaymentReportResponse {
   report: PaymentReportItem[];
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
 }
 
 export const adminApi = apiSlice.injectEndpoints({
