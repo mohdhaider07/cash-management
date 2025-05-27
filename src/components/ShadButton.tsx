@@ -13,10 +13,14 @@ const ShadButton: React.FC<ShadButtonProps> = ({
   ...props
 }) => {
   return (
-    <Button {...props} disabled={disabled || loading}>
+    <Button
+      {...props}
+      disabled={disabled || loading}
+      className="[&_svg]:size-6 w-full "
+    >
       {loading ? (
         <div className="flex items-center justify-center">
-          <Loader2 size={30} className="text-primary-foreground animate-spin" />
+          <Loader2 className="text-primary-foreground animate-spin" />
         </div>
       ) : (
         children

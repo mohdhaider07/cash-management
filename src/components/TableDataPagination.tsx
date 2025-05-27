@@ -91,7 +91,7 @@ const DataTablePagination: React.FC<DataTablePaginationProps<any>> = ({
             <SelectValue className="" placeholder={pageSize} />
           </SelectTrigger>
           <SelectContent className="">
-            {[10, 20, 30, 40, 50].map((size) => (
+            {[1, 10, 20, 30, 40, 50].map((size) => (
               <SelectItem key={size} value={`${size}`} className="">
                 {size}
               </SelectItem>
