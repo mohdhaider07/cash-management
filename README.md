@@ -1,6 +1,11 @@
+# Frontend Repository
+
+[GitHub Backend Repo](https://github.com/mohdhaider07/cash-management-backend)
+
 # Tech Stack / Packages Used
 
 **Main Libraries & Tools:**
+
 - React, React DOM, React Router DOM
 - Redux Toolkit, React Redux
 - Tailwind CSS, tailwindcss-animate, tailwind-merge
@@ -15,16 +20,3 @@
 - ESLint, TypeScript (dev tools)
 
 ---
-
-cash management
-
-
-
-
-
-
-
-
-
-
-
