@@ -12,17 +12,16 @@ type SummaryCardProps = {
   valueColor?: string;
   button?: ReactNode;
 };
-
 export const SummaryCardSkeleton = () => (
-  <Card className="w-fit">
-    <CardContent className="px-2 py-1 w-fit">
+  <Card className="w-full max-w-xs">
+    <CardContent className="p-4">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-muted animate-pulse" />
+        <div className="flex items-center gap-4">
+          <div className="w-24 h-24 rounded-full bg-muted animate-pulse" />
           <div>
-            <div className="w-20 h-3 mb-1 rounded bg-muted animate-pulse" />
-            <div className="w-16 h-2 mb-1 rounded bg-muted animate-pulse" />
-            <div className="w-24 h-6 rounded bg-muted animate-pulse" />
+            <div className="w-24 h-4 mb-2 rounded bg-muted animate-pulse" />
+            <div className="w-20 h-3 mb-2 rounded bg-muted animate-pulse" />
+            <div className="rounded w-28 h-7 bg-muted animate-pulse" />
           </div>
         </div>
       </div>

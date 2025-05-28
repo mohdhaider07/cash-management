@@ -6,6 +6,7 @@ import CustomInput from "@/components/inputs/CustomInput";
 import { Button } from "@/components/ui/button";
 import { useCreateDepositMutation } from "@/redux/features/apis/depositApi";
 import { toast } from "react-hot-toast";
+import ShadButton from "./ShadButton";
 
 type Props = {
   employeeId: string;
@@ -31,6 +32,11 @@ const DepositForm: React.FC<Props> = ({ employeeId, onSuccess }) => {
   });
 
   const onSubmit = async (data: DepositFormInputs) => {
+    // add a confirn for saving the deposit
+    const res = confirm(
+      `Are you sure you want to save this deposit of ${data.amount}?`
+    );
+    if (!res) return;
     const toastId = toast.loading("Saving deposit...");
     try {
       await createDeposit({
@@ -62,9 +68,26 @@ const DepositForm: React.FC<Props> = ({ employeeId, onSuccess }) => {
         {...form.register("depositDate")}
         error={form.formState.errors.depositDate}
       />
-      <Button type="submit" disabled={isLoading || !employeeId}>
-        Save Deposit
-      </Button>
+
+      <div className="flex gap-2 mt-4">
+        <Button
+          className="w-full"
+          type="button"
+          variant="outline"
+          onClick={onSuccess}
+          disabled={isLoading}
+        >
+          Cancel
+        </Button>
+        <ShadButton
+          type="submit"
+          disabled={isLoading || !employeeId}
+          loading={isLoading}
+          className="w-full"
+        >
+          Save Deposit
+        </ShadButton>
+      </div>
     </form>
   );
 };

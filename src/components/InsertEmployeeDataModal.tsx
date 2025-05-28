@@ -38,8 +38,8 @@ export default function InsertEmployeeDataModal({
       title="Insert Employee Data"
       size="medium"
     >
-      <div className="space-y-4">
-        <Label className="block mb-2 text-sm font-medium text-gray-700">
+      <div className="space-y-2">
+        <Label className="block text-sm font-medium text-foreground">
           Select Employee
         </Label>
         <Select
