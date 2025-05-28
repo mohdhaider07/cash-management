@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ShadInput from "@/components/inputs/ShadInput";
 import toast from "react-hot-toast";
 import Loader from "@/components/Loader";
+import ShadButton from "@/components/ShadButton";
 
 // Create signup schema to match backend requirements
 const signUpSchema = z
@@ -66,45 +67,81 @@ const SignUp = () => {
   };
 
   return (
-    <div>
-      <h3>Sign Up</h3>
+    <div className="flex min-h-screen">
+      {/* Left side */}
+      <div className="flex-col justify-center hidden p-12 text-white lg:flex lg:w-[60%] bg-primary">
+        <h1 className="mb-4 text-3xl font-semibold">
+          Cash Management Dashboard
+        </h1>
+        <p className="text-lg opacity-90">
+          Real-time Cash Reconciliation – Ensuring Accuracy & Transparency
+        </p>
+      </div>
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <ShadInput label="Full Name" name="name" form={form} />
+      {/* Right side */}
+      <div className="flex flex-col items-center justify-center w-full p-8 lg:w-[40%]">
+        <div className="w-full max-w-md ">
+          <h2
+            className="mb-4 text-2xl font-semibold text-center text-primary"
+            style={{ textShadow: "0 6px 16px rgba(80,0,120,0.45)" }}
+          >
+            Create Your Account
+          </h2>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+              <div className="space-y-4">
+                <ShadInput label="Full Name" name="name" form={form} />
+                <ShadInput
+                  label="Email"
+                  name="email"
+                  type="email"
+                  form={form}
+                />
+                <ShadInput
+                  label="Password"
+                  name="password"
+                  form={form}
+                  type="password"
+                />
+                <ShadInput
+                  label="Confirm Password"
+                  name="confirmPassword"
+                  form={form}
+                  type="password"
+                />
+              </div>
 
-          <ShadInput label="Email" name="email" type="email" form={form} />
+              {isError && error && "data" in error && (
+                <p className="text-sm text-red-500">
+                  {(error.data as { message?: string })?.message ??
+                    "An unknown error occurred"}
+                </p>
+              )}
 
-          <ShadInput
-            label="Password"
-            name="password"
-            form={form}
-            type="password"
-          />
+              <ShadButton
+                type="submit"
+                disabled={isLoading}
+                className="w-full "
+                loading={isLoading}
+              >
+                Register
+              </ShadButton>
+            </form>
+          </Form>
 
-          <ShadInput
-            label="Confirm Password"
-            name="confirmPassword"
-            form={form}
-            type="password"
-          />
-
-          {isError && error && "data" in error && (
-            <p>
-              {(error.data as { message?: string })?.message ??
-                "An unknown error occurred"}
-            </p>
-          )}
-
-          <Button type="submit" disabled={isLoading}>
-            {isLoading ? <Loader size={6} /> : "Register"}
-          </Button>
-        </form>
-      </Form>
-
-      <p>
-        Already have an account? <Link to="/login">Sign In</Link>
-      </p>
+          <div className="flex items-center justify-center gap-1 mt-4">
+            <span className="text-sm text-slate-500">
+              Already have an account?
+            </span>
+            <Link
+              to="/login"
+              className="text-sm font-medium text-primary hover:underline"
+            >
+              Sign In
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

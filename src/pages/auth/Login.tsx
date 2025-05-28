@@ -19,6 +19,7 @@ import {
 import { UserRole } from "@/enums/User";
 import ShadButton from "@/components/ShadButton";
 import ShadCheckBox from "@/components/inputs/ShadCheckBox";
+import { Link } from "react-router-dom";
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
@@ -135,6 +136,18 @@ const Login = () => {
               </ShadButton>
             </form>
           </Form>
+
+          <div className="flex items-center justify-center gap-1 mt-4">
+            <span className="text-sm text-slate-500">
+              Don't have an account?
+            </span>
+            <Link
+              to="/signup"
+              className="text-sm font-medium text-primary hover:underline"
+            >
+              Sign up
+            </Link>
+          </div>
         </div>
       </div>
     </div>
