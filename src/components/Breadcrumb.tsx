@@ -1,6 +1,5 @@
-// components/Breadcrumb.tsx
-"use client";
 import { cn } from "@/lib/utils";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Breadcrumb = ({
@@ -14,7 +13,7 @@ export const Breadcrumb = ({
     <div className="mb-6">
       <div className="flex items-center gap-2 text-sm text-slate-400">
         {items.map((item, index) => (
-          <>
+          <React.Fragment key={index}>
             <span
               className={cn(
                 "cursor-pointer hover:text-primary transition-colors",
@@ -29,7 +28,7 @@ export const Breadcrumb = ({
             {index < items.length - 1 && (
               <span className="text-slate-400">{">"}</span>
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>
