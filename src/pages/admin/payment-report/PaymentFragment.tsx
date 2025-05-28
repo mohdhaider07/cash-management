@@ -68,13 +68,23 @@ const columns: ColumnDef<TableDataType>[] = [
       const value = row.original.difference;
       const className =
         value == null
-          ? "text-left text-warning"
+          ? "text-left text-destructive"
           : value > 0
-          ? "text-left text-success"
-          : "text-left text-warning";
+          ? "text-left text-destructive"
+          : "text-left text-success";
       if (value === 0) return <div className={className}></div>;
 
-      return <div className={className}>{value == null ? "" : value}</div>;
+      console.log(className);
+
+      return (
+        <div className={className}>
+          {value == null
+            ? ""
+            : value > 0
+            ? `(+)${value}`
+            : `(-)${Math.abs(value)}`}
+        </div>
+      );
     },
   },
 ];
